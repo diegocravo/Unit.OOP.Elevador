@@ -19,11 +19,7 @@ public class Elevador {
 
     //construtor
     public void ligarDesligar(){
-        if (this.ligado){
-            this.ligado = false;
-        }else{
-            this.ligado = true;
-        }
+        this.ligado = !this.ligado;
     }
 
     // getters e setters
@@ -53,10 +49,6 @@ public class Elevador {
 
     public boolean isLigado() {
         return ligado;
-    }
-
-    public void setLigado(boolean ligado) {
-        this.ligado = ligado;
     }
 
     // métodos classe
