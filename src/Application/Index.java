@@ -42,12 +42,12 @@ public class Index {
                     break;
 
                 case "2":
-                    System.out.println("Status Elevador 1: "
+                    System.out.println("Elevador 1 ligado: "
                             + metodosAplicacao.elevador1.isLigado()
-                            + "\nStatus elevador 2: "
+                            + "\nElevador 2 ligado: "
                             + metodosAplicacao.elevador2.isLigado());
                     System.out.println("\nDeseja Ligar/Desligar qual elevador? \nDigite 0 para sair.");
-                    String optionLigaDesliga = ler.nextLine();
+                    String optionLigaDesliga = ler.next();
 
                     switch (optionLigaDesliga){
                         case "1":
