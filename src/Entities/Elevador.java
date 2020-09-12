@@ -18,10 +18,6 @@ public class Elevador {
         this.andarAtual = 1;
     }
 
-    public void ligarDesligar(){
-        this.ligado = !this.ligado;
-    }
-
     // getters e setters
     public boolean isPrioritario() {
         return prioritario;
@@ -57,6 +53,10 @@ public class Elevador {
         this.andarAtual = 1;
     }
 
+    public void ligarDesligar(){
+        this.ligado = !this.ligado;
+    }
+
     public void desativarPrioridade(){
         this.prioritario = false;
     }
@@ -68,25 +68,25 @@ public class Elevador {
         int esforcoPorAndar = 100;
         String elevadorSobe1 = "";
         String elevadorSobe2 = "";
-        int sobeOuDesce = andarChamado - andarAtual;
-        int sobeOuDesce1 = andarDestino - andarChamado;
+        int sobeOuDesce1 = andarChamado - andarAtual;
+        int sobeOuDesce2 = andarDestino - andarChamado;
 
         float esforcoTotal = 0;
         float esforco1 = 0;
         float esforco2 = 0;
 
-        if (sobeOuDesce > 0){
-            esforco1 = (float) (esforcoPorAndar * abs(sobeOuDesce) * 1.25);
-        }else if (sobeOuDesce < 0){
-            esforco1 = (float) (esforcoPorAndar * abs(sobeOuDesce));
+        if (sobeOuDesce1 > 0){
+            esforco1 = (float) (esforcoPorAndar * abs(sobeOuDesce1) * 1.25);
+        }else if (sobeOuDesce1 < 0){
+            esforco1 = (float) (esforcoPorAndar * abs(sobeOuDesce1));
         }else{
             esforco1 = 0;
         }
 
-        if (sobeOuDesce1 > 0){
-            esforco2 += (float) (esforcoPorAndar * abs(sobeOuDesce1) * 1.25);
-        }else if (sobeOuDesce1 < 0) {
-            esforco2 += (float) (esforcoPorAndar * abs(sobeOuDesce1));
+        if (sobeOuDesce2 > 0){
+            esforco2 += (float) (esforcoPorAndar * abs(sobeOuDesce2) * 1.25);
+        }else if (sobeOuDesce2 < 0) {
+            esforco2 += (float) (esforcoPorAndar * abs(sobeOuDesce2));
         }else {
             esforco2 +=0;
         }
