@@ -32,11 +32,6 @@ public class Index {
 
                     metodosAplicacao.prioridadeElevador(andarAtual, andarDesejado);
 
-                    if (metodosAplicacao.elevador1.isPrioritario()) {
-                        System.out.println("Elevador 1 a caminho...");
-                    } else {
-                        System.out.println("Elevador 2 a caminho...");
-                    }
                     // imprimi o status dos dois elevadores
                     System.out.println(metodosAplicacao.elevador1);
                     break;
@@ -62,9 +57,12 @@ public class Index {
                             metodosAplicacao.elevador2.desativarPrioridade();
                             System.out.println(metodosAplicacao.elevador1);
                             break;
+                        case "0":
+                            System.out.println("Menu Inicial");
+                            break;
                         default:
                             System.out.println("Opção Inválida");
-                            //continue;
+                            break;
                     }
                     break;
 

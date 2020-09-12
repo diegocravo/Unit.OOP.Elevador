@@ -16,7 +16,7 @@ public class metodosAplicacaoTest {
         Elevador elevador2 = new Elevador(02, true, false);
         metodosAplicacao.elevador1.setAndarAtual(10);
         metodosAplicacao.prioridadeElevador(1, 5);
-        assertTrue(false == metodosAplicacao.elevador1.isPrioritario());
-        assertTrue(true == metodosAplicacao.elevador2.isPrioritario());
+        assertTrue(!metodosAplicacao.elevador1.isPrioritario());
+        assertTrue(metodosAplicacao.elevador2.isPrioritario());
     }
 }

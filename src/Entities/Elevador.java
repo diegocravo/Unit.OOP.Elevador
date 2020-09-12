@@ -10,6 +10,7 @@ public class Elevador {
     private boolean prioritario;
     private int andarAtual;
 
+    //construtor
     public Elevador(int idElevador, boolean ligado, boolean prioritario) {
         this.idElevador = idElevador;
         this.ligado = ligado;
@@ -17,7 +18,6 @@ public class Elevador {
         this.andarAtual = 1;
     }
 
-    //construtor
     public void ligarDesligar(){
         this.ligado = !this.ligado;
     }
@@ -71,43 +71,32 @@ public class Elevador {
         int sobeOuDesce = andarChamado - andarAtual;
         int sobeOuDesce1 = andarDestino - andarChamado;
 
-        if (sobeOuDesce > 0){
-            elevadorSobe1 = "sim";
-        }else if (sobeOuDesce < 0){
-            elevadorSobe1 = "nao";
-        }else{
-            elevadorSobe1 = "mesmoAndar";
-        }
+        float esforcoTotal = 0;
         float esforco1 = 0;
         float esforco2 = 0;
 
-        switch (elevadorSobe1) {
-            case "sim":
-                esforco1 = (float) (esforcoPorAndar * abs(sobeOuDesce) * 1.25);
-                break;
-            case "nao":
-                esforco1 = (float) (esforcoPorAndar * abs(sobeOuDesce));
-                break;
-            case "mesmoAndar":
-                esforco1 = 0;
-                break;
+        if (sobeOuDesce > 0){
+            esforco1 = (float) (esforcoPorAndar * abs(sobeOuDesce) * 1.25);
+        }else if (sobeOuDesce < 0){
+            esforco1 = (float) (esforcoPorAndar * abs(sobeOuDesce));
+        }else{
+            esforco1 = 0;
         }
 
         if (sobeOuDesce1 > 0){
-            elevadorSobe2 = "sim";
+            esforco2 += (float) (esforcoPorAndar * abs(sobeOuDesce1) * 1.25);
         }else if (sobeOuDesce1 < 0) {
-            elevadorSobe2 = "nao";
+            esforco2 += (float) (esforcoPorAndar * abs(sobeOuDesce1));
+        }else {
+            esforco2 +=0;
         }
 
-        switch (elevadorSobe2) {
-            case "sim":
-                esforco2 = (float) (esforcoPorAndar * abs(sobeOuDesce1) * 1.25);
-                break;
-            case "nao":
-                esforco2 = (float) (esforcoPorAndar * abs(sobeOuDesce1));
-                break;
+        if (esforco2 == 0){
+            esforcoTotal = 0;
+        }else{
+            esforcoTotal = esforco1 + esforco2;
         }
-        return esforco1 + esforco2;
+        return esforcoTotal;
     }
 
     public String toString(){

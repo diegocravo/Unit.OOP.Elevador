@@ -23,6 +23,14 @@ public class metodosAplicacao {
             elevador2.setPrioritario(true);
             elevador2.setAndarAtual(andarDestino);
         }
+
+        if(esforco1 == 0 || esforco2 == 0){
+            System.out.println("Você já está no andar " + andarDestino);
+        }else if (metodosAplicacao.elevador1.isPrioritario()) {
+            System.out.println("Elevador 1 a caminho...");
+        } else {
+            System.out.println("Elevador 2 a caminho...");
+        }
     }
 
 }
