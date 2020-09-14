@@ -25,10 +25,30 @@ public class Index {
 
             switch (option){
                 case "1":
-                    System.out.println("Em qual andar você está? ");
-                    int andarAtual = ler.nextInt();
-                    System.out.println("Qual andar você deseja ir? ");
-                    int andarDesejado = ler.nextInt();
+                    boolean continuar = true;
+                    int andarAtual = 0;
+                    int andarDesejado = 0;
+                    do {
+                        try {
+                            System.out.println("Em qual andar você está? ");
+                            andarAtual = ler.nextInt();
+                            continuar = false;
+                        } catch (Exception e){
+                            System.out.println("Código deve ser numérico.");
+                            ler.next();
+                        }
+                    }while (continuar);
+                    continuar = true;
+                    do {
+                        try {
+                            System.out.println("Qual andar você deseja ir? ");
+                            andarDesejado = ler.nextInt();
+                            continuar = false;
+                        }catch (Exception e){
+                            System.out.println("Código deve ser numérico.");
+                            ler.next();
+                        }
+                    }while (continuar);
 
                     metodosAplicacao.prioridadeElevador(andarAtual, andarDesejado);
 
